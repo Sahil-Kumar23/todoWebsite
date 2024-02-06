@@ -20,14 +20,15 @@ const Todo = ({ id, s_no, updatedAt, text, completed, onToggle, onDelete , onUpd
   };
 
   return (
-    <div className="m-12 bg-gray-700 min-w-[200px] max-w-[300px] min-h-[300px] max-h-[300px] rounded-xl border border-gray-500 shadow-gray-700 shadow-md hover:bg-gray-900 hover:border-white hover:border-solid hover:border-2 hover:shadow-lg hover:scale-110 duration-700 p-5 ">
+    <div className="m-12 bg-gray-700 min-w-[200px] max-w-[300px] min-h-[300px] max-h-[300px] rounded-xl border-2 border-gray-500 shadow-gray-700 shadow-md hover:bg-gray-900 hover:border-white hover:border-solid hover:border-2 hover:shadow-lg hover:scale-110 duration-700 p-5 ">
       <input 
         className="w-9 h-9 p-1 bg-blue-800 rounded-md text-white font-bold text-center" 
-        defaultValue={s_no}
+        defaultValue={1}
+        value={s_no}
         readOnly
       />
       {/* <h4 className="py-2 text-white font-bold">{}</h4> */}
-      <p className="text-xs leading-7 text-white font-semibold space-y-4 p-1">{formattedDate}</p>
+      <p className="text-xs text-white space-y-4 p-1">{formattedDate}</p>
       <div className={`flex text-white items-center justify-between p-1 ${completed ? 'line-through' : ''}`}>
         <div className="max-h-36 min-h-36 overflow-y-auto">
           {/* <p className="text-base leading-7 text-white space-y-4 ">{text}</p> */}
