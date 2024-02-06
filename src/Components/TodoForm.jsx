@@ -14,7 +14,7 @@ const TodoForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="mt-4">
-      <div className="relative h-10 w-full min-w-[100px] ">
+      <div className="relative h-10 w-full min-w-[300px] ">
         <input
           className="text-white bg-neutral-400 peer w-full h-full bg-transparent font-sans font-normal outline outline-0 focus:outline-0 disabled:bg-gray-50 disabled:border-0 transition-all placeholder-shown:border placeholder-shown:border-gray-200 placeholder-shown:border-t-gray-200 border focus:border-2 border-t-transparent focus:border-t-transparent text-sm px-3 py-2.5 rounded-[7px] border-gray-200 focus:border-white"
           type='text'

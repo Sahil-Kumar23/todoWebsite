@@ -22,7 +22,7 @@ const Todo = ({ id, s_no, updatedAt, text, completed, onToggle, onDelete , onUpd
   return (
     <div className="m-12 bg-gray-700 min-w-[200px] max-w-[300px] min-h-[300px] max-h-[300px] rounded-xl border-2 border-gray-500 shadow-gray-700 shadow-md hover:bg-gray-900 hover:border-white hover:border-solid hover:border-2 hover:shadow-lg hover:scale-110 duration-700 p-5 ">
       <input 
-        className="w-9 h-9 p-1 bg-blue-800 rounded-md text-white font-bold text-center" 
+        className="w-9 h-9 p-1 bg-blue-700 rounded-md text-white font-bold text-center" 
         defaultValue={1}
         value={s_no}
         readOnly
@@ -63,7 +63,7 @@ const Todo = ({ id, s_no, updatedAt, text, completed, onToggle, onDelete , onUpd
             </button>
             <button
               type="button"
-              className="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500"
+              className="text-red-700 border border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:focus:ring-red-800 dark:hover:bg-red-500"
               onClick={() => handleCancel()}
             >
               <svg 
