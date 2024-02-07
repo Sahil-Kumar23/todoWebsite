@@ -3,7 +3,7 @@ import Todo from './Todo';
 import { useState } from 'react';
 
 const TodoList = ({ todos, onToggle, onDelete , onUpdate}) => {
-  const [showRows, setShowRows] = useState(4);
+  const [showRows, setShowRows] = useState(8);
 
   const handleShowMore = () => {
     setShowRows(prevRows => prevRows + 4);
@@ -14,7 +14,10 @@ const TodoList = ({ todos, onToggle, onDelete , onUpdate}) => {
   };
 
   const hideMoreButton = showRows >= todos.length;
-  const hideLessButton = showRows <= 4;
+  const hideLessButton = showRows <= 8;
+
+  // const startRange = Math.min(todos.length, showRows - 3);
+  const endRange = Math.min(todos.length, showRows);
 
   return (
     <>
@@ -22,6 +25,17 @@ const TodoList = ({ todos, onToggle, onDelete , onUpdate}) => {
       {todos.slice(0, showRows).map((todo, index) => (
         <Todo key={todo.id} s_no={index+1} {...todo} onToggle={onToggle} onDelete={onDelete} onUpdate={onUpdate}/>
       ))}
+    </div>
+    <div className='flex justify-center mb-2'>
+      <span className="text-sm text-gray-700 dark:text-gray-400">
+        Showing  
+        {/* <span className="font-semibold text-gray-900 dark:text-white"> {startRange} </span> 
+        to   */}
+        <span className="font-semibold text-gray-900 dark:text-white"> {endRange} </span> 
+        of  
+        <span className="font-semibold text-gray-900 dark:text-white"> {todos.length} </span> 
+        Results 
+      </span>
     </div>
     <div className="flex justify-center gap-4 mb-4">
       <button className="cursor-pointer relative group overflow-hidden border-2 px-6 py-2 border-blue-700 rounded-lg" onClick={handleShowMore} hidden={hideMoreButton}>
