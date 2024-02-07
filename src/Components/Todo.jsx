@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-const Todo = ({ id, s_no, updatedAt, text, completed, onToggle, onDelete , onUpdate}) => {
+const Todo = ({ id, s_no, updatedAt, isEdited, text, completed, onToggle, onDelete , onUpdate}) => {
   const [formattedDate, setFormattedDate] = useState(new Date(updatedAt).toLocaleString());
   const [isEditing, setEditing] = useState(false);
   const [editedText, setEditedText] = useState(text);
@@ -20,7 +20,7 @@ const Todo = ({ id, s_no, updatedAt, text, completed, onToggle, onDelete , onUpd
   };
 
   return (
-    <div className="m-12 bg-gray-700 min-w-[200px] max-w-[300px] min-h-[300px] max-h-[300px] rounded-xl border-2 border-gray-500 shadow-gray-700 shadow-md hover:bg-gray-900 hover:border-white hover:border-solid hover:border-2 hover:shadow-lg hover:scale-110 duration-700 p-5 ">
+    <div className="m-12 bg-gray-700 min-w-[210px] max-w-[300px] min-h-[300px] max-h-[300px] rounded-xl border-2 border-gray-500 shadow-gray-700 shadow-md hover:bg-gray-900 hover:border-white hover:border-solid hover:border-2 hover:shadow-lg hover:scale-110 duration-700 p-5 ">
       <input 
         className="w-9 h-9 p-1 bg-blue-700 rounded-md text-white font-bold text-center" 
         defaultValue={1}
@@ -28,8 +28,11 @@ const Todo = ({ id, s_no, updatedAt, text, completed, onToggle, onDelete , onUpd
         readOnly
       />
       {/* <h4 className="py-2 text-white font-bold">{}</h4> */}
-      <p className="text-xs text-white space-y-4 p-1">{formattedDate}</p>
-      <div className={`flex text-white items-center justify-between p-1 ${completed ? 'line-through' : ''}`}>
+      <div className={`flex text-xs text-white p-1 ${isEdited ? 'gap-2' : ''}`}>
+        <p hidden={!isEdited}>{isEdited ? 'Edited' : ''}</p>
+        <p>{formattedDate}</p>
+      </div>
+      <div className={`flex text-white items-center justify-between p-1 ${completed ? 'line-through decoration-2' : ''}`}>
         <div className="max-h-36 min-h-36 overflow-y-auto">
           {/* <p className="text-base leading-7 text-white space-y-4 ">{text}</p> */}
           {isEditing ? (
@@ -135,6 +138,7 @@ Todo.propTypes = {
   updatedAt: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
+  isEdited: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,

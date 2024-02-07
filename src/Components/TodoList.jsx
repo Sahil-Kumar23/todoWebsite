@@ -6,11 +6,11 @@ const TodoList = ({ todos, onToggle, onDelete , onUpdate}) => {
   const [showRows, setShowRows] = useState(4);
 
   const handleShowMore = () => {
-    setShowRows(prevRows => prevRows + 2);
+    setShowRows(prevRows => prevRows + 4);
   };
 
   const handleShowLess = () => {
-    setShowRows(prevRows => prevRows - 2);
+    setShowRows(prevRows => prevRows - 4);
   };
 
   const hideMoreButton = showRows >= todos.length;

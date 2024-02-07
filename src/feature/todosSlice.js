@@ -32,6 +32,7 @@ const todosSlice = createSlice({
         text: action.payload,
         completed: false,
         updatedAt: currentDate.toISOString(),
+        isEdited: false,
       };
       const updatedState = [newTodo, ...state]; // Create a new array with the new todo added to the beginning
       saveTodosToLocalStorage(updatedState); // Save the updated state to local storage
@@ -55,11 +56,12 @@ const todosSlice = createSlice({
       return newState
     },
     editTodo: (state, action) => {
-      const { id, newText, updatedAt } = action.payload;
+      const { id, newText, updatedAt} = action.payload;
       const todo = state.find((todo) => todo.id === id);
       if (todo) {
         todo.text = newText;
         todo.updatedAt = updatedAt || new Date().toISOString();
+        todo.isEdited = true;
         saveTodosToLocalStorage(state);
       }
     },
